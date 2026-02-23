@@ -11,26 +11,26 @@ Um encurtador de URLs desenvolvido com Node.js e Sequelize, que transforma links
 ---
 
 ## ✨ Funcionalidades
--🔗 Encurtamento de URLs com slug personalizado ou automático
--🎭 Gerador de slugs com personalidade
--🚀 Redirecionamento rápido via /slug
--📊 Contador de cliques
--🧠 Registro de IP e User-Agent
--⏰ Expiração de links
--🚫 Blacklist de URLs suspeitas
--🛡 Rate limit contra abuso
--📈 Dashboard simples via API
+- 🔗 Encurtamento de URLs com slug personalizado ou automático
+- 🎭 Gerador de slugs com personalidade
+- 🚀 Redirecionamento rápido via /slug
+- 📊 Contador de cliques
+- 🧠 Registro de IP e User-Agent
+- ⏰ Expiração de links
+- 🚫 Blacklist de URLs suspeitas
+- 🛡 Rate limit contra abuso
+- 📈 Dashboard simples via API
 
 ---
 
 ## 🛠️ Stack utilizada
--Node.js
--Express
--Sequelize
--PostgreSQL
--ES Modules (import/export)
--express-rate-limit
--dotenv
+- Node.js
+- Express
+- Sequelize
+- PostgreSQL
+- ES Modules (import/export)
+- express-rate-limit
+- dotenv
 
 ---
 
@@ -60,36 +60,31 @@ Separação clara de responsabilidades seguindo boas práticas de backend.
 
 ## 🧠 Modelagem de dados
 Link
- id
- originalUrl
- slug
- clicks
- expiresAt
- createdAt
+- id
+- originalUrl
+- slug
+- clicks
+- expiresAt
+- createdAt
 
 ---
 
 ## 🚀 Como rodar o projeto
 ### Pré-requisitos
-- Node.js >= 18
-- express
-- sequelize
-- pg
-- pg-hstore
-- dotenv
+- Node.js >= 18 
 - PostgreSQL
 
 
--1️⃣ Clone o repositório
+### 1️⃣ Clone o repositório
 ```bash
 git clone https://github.com/seu-usuario/encurtador-com-personalidade.git
 cd encurtador-com-personalidade
 ```
--2️⃣ Instale as dependências
+### 2️⃣ Instale as dependências
 ```bash
 npm install
 ```
--3️⃣ Configure o ambiente
+### 3️⃣ Configure o ambiente
 Crie um arquivo .env:
 ```bash
 DB_NAME=links_db
@@ -98,7 +93,7 @@ DB_PASSWORD=postgres
 DB_HOST=localhost
 DB_PORT=5432
 ```
--4️⃣ Inicie o servidor
+### 4️⃣ Inicie o servidor
 ```bash
 npm run dev
 ```
