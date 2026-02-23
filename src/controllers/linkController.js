@@ -1,12 +1,15 @@
 import { Link } from '../models/index.js';
 import { isvalidUrl } from '../utils/isValidUrl.js';
 import { gerarSlug } from '../utils/slugGenerator.js';
+import { isblackListed } from '../utils/blackList.js';
 
 export const createLink = async (req, res) => {
     try {
         const { originalUrl, slug } = req.body;
 
         if ( !originalUrl || !isvalidUrl(originalUrl) ) return res.status(400).json( { error: "originalUrl inválido" } );
+
+        if (isblackListed(originalUrl)) return res.status(403).json( { error: "URL contém palavras proíbidas" } );
 
         let finalSlug = slug;
 
@@ -23,12 +26,4 @@ export const createLink = async (req, res) => {
         return res.status(500).json( { error: "Erro ao criar o link" } );
     }
 };
-
-export const getLinkStats = async (req, res) => {
-    try {
-        const link = await Link.findAll({ attributes: ['slug', 'originalUrl', 'clicks']  });
-        return res.json(link);
-    } catch ( error ) {
-        return res.status(500).json( { error: "Erro ao obter as estatísticas" } );
-    }
-};
+ 

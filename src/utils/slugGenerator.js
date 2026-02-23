@@ -7,7 +7,10 @@ const palavras = [
   'link-da-fofoca',
   'so-vai',
   'medo',
-  'coragem'
+  'coragem',
+  'talvez-funcione',
+  'virus',
+  'virus-gratis'
 ];
 
 export const gerarSlug = () => {
