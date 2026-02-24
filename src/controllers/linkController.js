@@ -2,6 +2,7 @@ import { Link } from '../models/index.js';
 import { isvalidUrl } from '../utils/isValidUrl.js';
 import { gerarSlug } from '../utils/slugGenerator.js';
 import { isblackListed } from '../utils/blackList.js';
+import { calculateExpires } from '../utils/calculateExpires.js';
 
 export const createLink = async (req, res) => {
     try {
@@ -19,7 +20,9 @@ export const createLink = async (req, res) => {
 
         if (slugExists) return res.status(400).json( { error: "Slug já existe" } );
 
-        const link = await Link.create( { originalUrl, slug: finalSlug } );
+        const expiresAt = calculateExpires();
+
+        const link = await Link.create( { originalUrl, slug: finalSlug, expiresAt } );
 
         return res.status(201).json(link);
     } catch ( error ) {

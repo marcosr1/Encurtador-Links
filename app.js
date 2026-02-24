@@ -6,8 +6,9 @@ import dashboardRoutes from "./src/routes/dashboardRoutes.js";
 const app = express();
 
 app.use(express.json());
-app.use(linkRoutes);
-app.use(redirectRoutes);
+app.use(linkRoutes); 
 app.use(dashboardRoutes);
+app.use(redirectRoutes);
+
 
 export default app;

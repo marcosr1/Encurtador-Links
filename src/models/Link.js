@@ -16,6 +16,10 @@ const Link = sequelize.define("Link", {
         allowNull: false,
         unique: true
     },
+    expiresAt: {
+        type: DataTypes.DATE,
+        allowNull: true
+    },
     clicks: {
         type: DataTypes.INTEGER,
         defaultValue: 0
