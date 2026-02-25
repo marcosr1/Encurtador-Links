@@ -1,4 +1,5 @@
 import { Link } from "../models/index.js";
+import { decrypt } from "../utils/crypto.js";
 
 export const redirectToOriginalUrl = async (req, res) => {
     const { slug } = req.params;
@@ -14,5 +15,7 @@ export const redirectToOriginalUrl = async (req, res) => {
 
     await link.increment("clicks");
 
-    return res.redirect(link.originalUrl);
+    const originalUrl = decrypt(link.originalUrl);
+
+    return res.redirect(originalUrl);
 };
