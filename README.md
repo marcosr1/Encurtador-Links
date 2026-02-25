@@ -130,6 +130,20 @@ POST /links
     "Expira": "data"
 }
 ```
+
+### Gerar o QR code
+```bash
+GET /qrcode/:slug
+```
+### Retorna:
+```json
+{
+  "slug": "slug",
+  "shortUrl": "url/:slug",
+  "qrCode": "img"
+}
+```
+
 ## 🔁 Usando o encurtador
 
 ### Se o slug gerado for:
