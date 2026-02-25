@@ -120,6 +120,14 @@ POST /links
 }
 ```
 
+### Retorna:
+```json
+{
+    "Id": "id",
+    "Slug": "slug",
+    "Expira": "data"
+}
+```
 ## 🔁 Usando o encurtador
 
 ### Se o slug gerado for:
