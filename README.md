@@ -15,10 +15,8 @@ Um encurtador de URLs desenvolvido com Node.js e Sequelize, que transforma links
 - 🎭 Gerador de slugs com personalidade
 - 🚀 Redirecionamento rápido via /slug
 - 📊 Contador de cliques
-- 🧠 Registro de IP e User-Agent
 - ⏰ Expiração de links
 - 🚫 Blacklist de URLs suspeitas
-- 🛡 Rate limit contra abuso
 - 📈 Dashboard simples via API
 
 ---
@@ -108,7 +106,7 @@ POST /links
 ```json
 {
   "originalUrl": "https://google.com",
-  "slug": "confia"
+  "slug": "confia" (opcional)
 }
 ```
 
@@ -122,6 +120,14 @@ POST /links
 }
 ```
 
+### Retorna:
+```json
+{
+    "Id": "id",
+    "Slug": "slug",
+    "Expira": "data"
+}
+```
 ## 🔁 Usando o encurtador
 
 ### Se o slug gerado for:
@@ -146,8 +152,17 @@ http://localhost:3333/confia-847
 GET /dashboard
 ```
 ### Retorna:
+```json
+[
+    {
+        "slug": "slug",
+        "originalUrl": "link",
+        "clicks": 0,
+        "expiresAt": "data"
+    }
+]
+```
 - links ordenados por número de cliques
-- lista de acessos (IP, user-agent, data)
 - Pronto para ser consumido por qualquer frontend.
 
 --- 
@@ -155,18 +170,7 @@ GET /dashboard
 ## 🔒 Segurança aplicada
 - Validação de URLs
 - Blacklist básica de termos suspeitos
-- Rate limit global
 - Expiração automática de links
 - Tratamento de slugs duplicados
-
----
-
-## 📌 Possíveis melhorias futuras
-- Autenticação de usuários
-- Links privados
-- Dashboard com gráficos
-- Testes automatizados
-- Deploy com domínio curto
-- Cache com Redis
 
 ---
