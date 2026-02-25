@@ -1,10 +1,9 @@
 import { Link } from "../models/index.js";
 import { decrypt } from "../utils/crypto.js";
 
-export const redirectToOriginalUrl = async (req, res) => {
+export const redirectToOriginalUrl = async ( req, res ) => {
     const { slug } = req.params;
-    
-    const link = await Link.findOne( { where: {slug} } );
+    const link = await Link.findOne( { where: { slug } } );
 
     if (!link) return res.status(404).json( { error: "Link não encontrado" } );
 
@@ -14,7 +13,7 @@ export const redirectToOriginalUrl = async (req, res) => {
     }
 
     await link.increment("clicks");
-
+    
     const originalUrl = decrypt(link.originalUrl);
 
     return res.redirect(originalUrl);
