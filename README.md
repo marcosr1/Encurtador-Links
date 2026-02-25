@@ -144,6 +144,16 @@ http://localhost:3333/confia-847
 GET /dashboard
 ```
 ### Retorna:
+```json
+[
+    {
+        "slug": "slug",
+        "originalUrl": "link",
+        "clicks": 0,
+        "expiresAt": "data"
+    }
+]
+```
 - links ordenados por número de cliques
 - Pronto para ser consumido por qualquer frontend.
 
