@@ -29,6 +29,8 @@ Um encurtador de URLs desenvolvido com Node.js e Sequelize, que transforma links
 - ES Modules (import/export)
 - express-rate-limit
 - dotenv
+- crypto
+- node-crosn
 
 ---
 
